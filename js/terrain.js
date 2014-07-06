@@ -1,6 +1,4 @@
 define(function(){
-    var Terrain = {};
-
     var TERRAIN = [];
 
     function drawTerrain(c){
@@ -102,16 +100,22 @@ define(function(){
         return TERRAIN = terrain;
     }
 
-    Terrain.TERRAIN = TERRAIN;
-    Terrain.generate = function(method){
+    function generate(method){
         if(method === "orig"){
             TERRAIN = generateTerrain();
         }else{
             TERRAIN = generateTerrain2();
         }
         smoothTerrain(TERRAIN);
-    };
-    Terrain.draw = drawTerrain;
+        Terrain.TERRAIN = TERRAIN;
+    }
+
+
+    Terrain = {
+        TERRAIN : TERRAIN,
+        generate : generate,
+        draw : drawTerrain
+    }
 
     return(Terrain);
 });
