@@ -1,6 +1,10 @@
 
 
 var Tank = function Tank(type, name, color){
+
+    var tank_pic = new Image();
+    tank_pic.src = "imgs/abram5.xcf";
+        
     this.type = type;
     this.name = name;
     this.color = color;
@@ -23,6 +27,9 @@ var Tank = function Tank(type, name, color){
         this.inteligence = inteligence;
     };
 
+    this.draw = function(x, terrain, canvas){
+        canvas.drawImage (x - 5, -terrain[x]);
+    };
 
     this.turn = function(){
     };
@@ -47,3 +54,5 @@ var Inteligence = function Inteligence(name){
     this.startTurn = function (shields, stuff){
     };
 }
+define(Tank);
+//exports = Tank;
